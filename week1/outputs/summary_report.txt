@@ -1,0 +1,84 @@
+======================================================================
+TITANIC SURVIVAL PREDICTION - DATA CLEANING REPORT
+======================================================================
+Raw Dataset Shape     : (891, 12)
+Cleaned Dataset Shape : (891, 12)
+Remaining Null Values : 0
+
+--- Assignment 1: Dataset .info() ---
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 12 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   PassengerId  891 non-null    int64  
+ 1   Survived     891 non-null    int64  
+ 2   Pclass       891 non-null    int64  
+ 3   Name         891 non-null    object 
+ 4   Sex          891 non-null    object 
+ 5   Age          714 non-null    float64
+ 6   SibSp        891 non-null    int64  
+ 7   Parch        891 non-null    int64  
+ 8   Ticket       891 non-null    object 
+ 9   Fare         891 non-null    float64
+ 10  Cabin        204 non-null    object 
+ 11  Embarked     889 non-null    object 
+dtypes: float64(2), int64(5), object(5)
+memory usage: 83.7+ KB
+
+--- Assignment 1: Numeric Summary (.describe()) ---
+       PassengerId  Survived   Pclass      Age    SibSp    Parch     Fare
+count      891.000   891.000  891.000  714.000  891.000  891.000  891.000
+mean       446.000     0.384    2.309   29.699    0.523    0.382   32.204
+std        257.354     0.487    0.836   14.526    1.103    0.806   49.693
+min          1.000     0.000    1.000    0.420    0.000    0.000    0.000
+25%        223.500     0.000    2.000   20.125    0.000    0.000    7.910
+50%        446.000     0.000    3.000   28.000    0.000    0.000   14.454
+75%        668.500     1.000    3.000   38.000    1.000    0.000   31.000
+max        891.000     1.000    3.000   80.000    8.000    6.000  512.329
+
+--- Missing Values Before Cleaning ---
+          missing_count  missing_pct
+Age                 177        19.87
+Cabin               687        77.10
+Embarked              2         0.22
+
+--- Assignment 2 & 3: Cleaning & Encoding Summary ---
+Age imputed (177 rows) with Median = 28.0 (Mean was 29.7)
+Embarked imputed (2 rows) with Mode = 'S'
+Cabin converted to binary indicator `HasCabin` (0/1); raw sparse column dropped.
+Sex LabelEncoder mapping : {'female': 0, 'male': 1}
+Embarked OneHotEncoder columns : ['Embarked_C', 'Embarked_Q', 'Embarked_S']
+
+--- Survival Prediction Model Evaluation (Leak-Free 5-Fold CV & 80/20 Holdout) ---
+
+[Logistic Regression]
+  5-Fold CV Accuracy : 0.7992 +/- 0.0277
+  Holdout Accuracy   : 0.8101
+  Holdout ROC-AUC    : 0.8402
+precision    recall  f1-score   support
+
+Did Not Survive       0.83      0.87      0.85       110
+       Survived       0.78      0.71      0.74        69
+
+       accuracy                           0.81       179
+      macro avg       0.80      0.79      0.80       179
+   weighted avg       0.81      0.81      0.81       179
+
+[Random Forest]
+  5-Fold CV Accuracy : 0.8244 +/- 0.0273
+  Holdout Accuracy   : 0.7989
+  Holdout ROC-AUC    : 0.8380
+precision    recall  f1-score   support
+
+Did Not Survive       0.80      0.89      0.84       110
+       Survived       0.79      0.65      0.71        69
+
+       accuracy                           0.80       179
+      macro avg       0.80      0.77      0.78       179
+   weighted avg       0.80      0.80      0.79       179
+
+--- Generated Artifacts ---
+Cleaned CSV  : C:\Users\megha\MachineLearning\week1\outputs\titanic_cleaned.csv
+Age Plot     : C:\Users\megha\MachineLearning\week1\outputs\age_distribution.png
+EDA Dashboard: C:\Users\megha\MachineLearning\week1\outputs\titanic_eda_summary.png
