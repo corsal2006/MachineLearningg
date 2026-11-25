@@ -1,0 +1,26 @@
+==========================================================================
+WEEK 4 — MALL CUSTOMER SEGMENTATION (K-MEANS CLUSTERING) REPORT
+==========================================================================
+Dataset Shape       : (200, 5)
+Clustering Features : Annual Income (k$), Spending Score (1-100)
+Optimal Clusters (k): 5
+Silhouette Score    : 0.5547
+
+--- Business Spender Group Summary ---
+  Spender_Group  Customers  Avg_Age  Avg_Income_k  Avg_Spending_Score  Share_Pct
+   Low Spenders         58    42.74         63.66               18.62       29.0
+Medium Spenders         81    42.72         55.30               49.52       40.5
+  High Spenders         61    30.02         64.61               81.13       30.5
+
+--- Detailed Cluster Persona Breakdown ---
+ Cluster   Spender_Group                         Customer_Persona  Customers  Avg_Age  Avg_Income_k  Avg_Spending_Score
+       1   High Spenders            Affluent VIPs (High Spenders)         39    32.69         86.54               82.13
+       2   High Spenders       Young Trendsetters (High Spenders)         22    25.27         25.73               79.36
+       0 Medium Spenders   Core Steady Shoppers (Medium Spenders)         81    42.72         55.30               49.52
+       4    Low Spenders Budget-Conscious Shoppers (Low Spenders)         23    45.22         26.30               20.91
+       3    Low Spenders      Careful High-Earners (Low Spenders)         35    41.11         88.20               17.11
+
+--- Generated Artifacts ---
+Segmented CSV    : C:\Users\megha\MachineLearning\week4\outputs\mall_customers_segmented.csv
+Segments Plot    : C:\Users\megha\MachineLearning\week4\outputs\customer_segments_overview.png
+Diagnostics Plot : C:\Users\megha\MachineLearning\week4\outputs\segmentation_diagnostics.png
