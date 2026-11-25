@@ -1,0 +1,47 @@
+========================================================================
+WEEK 2 — LINEAR & LOGISTIC REGRESSION REPORT
+========================================================================
+
+--- Mini Project 2 & Assignment 1: House Price Prediction (Linear Regression) ---
+Dataset Shape      : (545, 13) (Train=436, Test=109)
+Train R^2 Score    : 0.6859
+Test R^2 Score     : 0.6529
+Adjusted Test R^2  : 0.6054
+5-Fold CV R^2      : 0.6490 +/- 0.0452
+Test RMSE          : 1,324,506.96
+Test MAE           : 970,043.40
+
+Top Feature Coefficients (Standardized Numeric + One-Hot Categoricals):
+                        Feature  Coefficient
+            airconditioning_yes    791426.74
+            hotwaterheating_yes    684649.89
+                   prefarea_yes    629890.57
+                      bathrooms    521879.03
+                           area    519552.42
+   furnishingstatus_unfurnished   -413645.06
+                   basement_yes    390251.18
+                   mainroad_yes    367919.95
+                        stories    349251.44
+                  guestroom_yes    231610.04
+                        parking    192005.95
+furnishingstatus_semi-furnished   -126881.82
+                       bedrooms     57349.56
+
+--- Assignment 2: Titanic Survival Prediction (Logistic Regression) ---
+Dataset Shape      : (891, 12)
+5-Fold CV Accuracy : 0.7992 +/- 0.0277
+Holdout Accuracy   : 0.8101
+Holdout ROC-AUC    : 0.8402
+precision    recall  f1-score   support
+
+Did Not Survive       0.83      0.87      0.85       110
+       Survived       0.78      0.71      0.74        69
+
+       accuracy                           0.81       179
+      macro avg       0.80      0.79      0.80       179
+   weighted avg       0.81      0.81      0.81       179
+
+--- Generated Artifacts ---
+Predictions CSV : C:\Users\megha\MachineLearning\week2\outputs\housing_predictions.csv
+Housing Plot    : C:\Users\megha\MachineLearning\week2\outputs\predicted_vs_actual.png
+Titanic Plot    : C:\Users\megha\MachineLearning\week2\outputs\titanic_logistic_eval.png
